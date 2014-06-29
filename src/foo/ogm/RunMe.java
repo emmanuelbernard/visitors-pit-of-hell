@@ -1,16 +1,17 @@
-package foo;
+package foo.ogm;
 
-/**
- * @author Emmanuel Bernard <emmanuel@hibernate.org>
- */
+import foo.core.ChainableEntityEntry;
+import foo.core.CoreOrmEntityEntry;
+import foo.other.DBObject;
+
 public class RunMe {
+
 	public static void main(String[] foo) {
 		ChainableEntityEntry entityEntry = getEntityEntry();
 		DBObjectRetriever dbo = new DBObjectRetriever();
 
 		Object maybeDBobject = entityEntry.visit( dbo );
 		System.out.println( "Is an DBObject: " + ( maybeDBobject.getClass() == DBObject.class ) );
-		//return -1;
 	}
 
 	public static ChainableEntityEntry getEntityEntry() {

@@ -1,8 +1,8 @@
-package foo;
+package foo.ogm;
 
-/**
- * @author Emmanuel Bernard <emmanuel@hibernate.org>
- */
+import foo.core.ChainableEntityEntry;
+import foo.core.EntityEntryVisitor;
+
 public class MongoSettingRetriever implements EntityEntryVisitor {
 
 	public Setting accept(MongoDBEntityEntry entry) {

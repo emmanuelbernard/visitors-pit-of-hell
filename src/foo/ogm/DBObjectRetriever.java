@@ -1,10 +1,11 @@
-package foo;
+package foo.ogm;
 
-/**
- * @author Emmanuel Bernard <emmanuel@hibernate.org>
- */
-public class DBObjectRetriever implements EntityEntryVisitor {
+import foo.core.ChainableEntityEntry;
+import foo.other.DBObject;
 
+public class DBObjectRetriever implements OgmEntityEntryVisitor {
+
+	@Override
 	public DBObject accept(MongoDBEntityEntry entry) {
 		return entry.dbObject;
 	}
