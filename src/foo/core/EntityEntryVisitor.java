@@ -1,9 +1,8 @@
-package foo;
+package foo.core;
 
-/**
- * @author Emmanuel Bernard <emmanuel@hibernate.org>
- */
+
 public interface EntityEntryVisitor {
+
 	Object accept(ChainableEntityEntry entityEntityEntry);
 
 }

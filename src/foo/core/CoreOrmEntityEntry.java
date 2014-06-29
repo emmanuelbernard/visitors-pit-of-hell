@@ -1,13 +1,11 @@
-package foo;
+package foo.core;
 
-/**
- * @author Emmanuel Bernard <emmanuel@hibernate.org>
- */
+
 public class CoreOrmEntityEntry implements ChainableEntityEntry {
-	ChainableEntityEntry next;
-	String state1;
-	Integer state2;
 
+	ChainableEntityEntry next;
+	public String state1;
+	Integer state2;
 
 	@Override
 	public ChainableEntityEntry next() {

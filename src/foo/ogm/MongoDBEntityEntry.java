@@ -1,15 +1,13 @@
-package foo;
+package foo.ogm;
 
-import java.util.Map;
+import foo.core.ChainableEntityEntry;
+import foo.core.EntityEntryVisitor;
+import foo.other.DBObject;
 
-/**
- * @author Emmanuel Bernard <emmanuel@hibernate.org>
- */
-public class MongoDBEntityEntry implements MongoChainableEntityEntry {
+public class MongoDBEntityEntry implements ChainableEntityEntry {
 	ChainableEntityEntry next;
 	DBObject dbObject;
 	Setting mongoSetting;
-
 
 	@Override
 	public ChainableEntityEntry next() {
@@ -28,13 +26,11 @@ public class MongoDBEntityEntry implements MongoChainableEntityEntry {
 
 	@Override
 	public Object visit(EntityEntryVisitor visitor) {
+		if ( visitor instanceof OgmEntityEntryVisitor ) {
+			OgmEntityEntryVisitor v = (OgmEntityEntryVisitor) visitor;
+			return v.accept(this);
+		}
 		return visitor.accept(this);
 	}
-
-	@Override
-	public Object visit(OGmEntityEntryVisitor visitor) {
-		return visitor.accept(this);
-	}
-
 
 }

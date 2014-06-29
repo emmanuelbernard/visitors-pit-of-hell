@@ -1,8 +1,6 @@
-package foo;
+package foo.core;
 
-/**
- * @author Emmanuel Bernard <emmanuel@hibernate.org>
- */
+
 public interface ChainableEntityEntry {
 	ChainableEntityEntry next();
 	void addNext(ChainableEntityEntry mongoEntry);
